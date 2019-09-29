@@ -39,12 +39,13 @@
 	print_r($headers);
 	echo "</pre>";
 
-	if (preg_match("/close/i", $headers['Location'])) {
+	if (preg_match("/close.html/i", $headers['Location'])) {
 		header("refresh: $timeout;");
 	} else {
 		echo "Done. Please waiting to access to register page.";
-		header("refresh: 11; url=$url");
-		$timeout = 10;
+		header("refresh: 1; url=$url");
+		$timeout = 1;
+		exit;
 	}
 ?>
 <div id="countdown"></div>
