@@ -49,7 +49,7 @@
 ?>
 <div id="countdown"></div>
 <script>
-var timeleft = <?=$timeout?>;
+var timeleft = <?php echo $timeout?>;
 var downloadTimer = setInterval(function(){
   document.getElementById("countdown").innerHTML = "<h1>"+timeleft + " seconds remaining to register page</h1>";
   timeleft -= 1;
@@ -60,5 +60,5 @@ var downloadTimer = setInterval(function(){
 }, 1000);
 </script>
 <br>
-<iframe src="<?=$url?>" width="100%" height="100%"></iframe>
+<iframe src="<?php echo $url?>" width="100%" height="100%"></iframe>
 
