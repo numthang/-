@@ -1,6 +1,6 @@
 <?php
 	$url = 'https://regist.xn--b3caa1e2a7e2b0h2be.com/Register/';
-	$timeout = 60;
+	$timeout = 20;
 
 	// create curl resource
 	$ch = curl_init();
@@ -36,18 +36,20 @@
 	}
 	// Print all headers as array
 	echo "<pre>";
-	print_r($headers);
+	#print_r($headers);
 	echo "</pre>";
 
 	if (preg_match("/close.html/i", $headers['Location'])) {
 		header("refresh: $timeout;");
 	} else {
 		echo "Done. Please waiting to access to register page.";
-		header("refresh: 1; url=$url");
-		$timeout = 1;
+		header("location: $url");
+		$timeout = 0;
 		exit;
 	}
+	echo 'ถ้ามองไม่เห็นอะไรใน frame ด้านล่างให้กด <a href="'.$url.'" target="_blank">ไปลงทะเบียนกันเลย</a>';
 ?>
+
 <div id="countdown"></div>
 <script>
 var timeleft = <?php echo $timeout?>;
